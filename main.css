@@ -1,0 +1,203 @@
+/* src/styles/main.css */
+
+/* -------------------------------
+   General Reset & Base Styles
+---------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #fffdf7;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* -------------------------------
+   Header
+---------------------------------*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fdf5e6;
+  border-bottom: 2px solid #d4af37;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #d4af37; /* Gold */
+}
+
+.header nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header nav a:hover {
+  color: #d4af37;
+}
+
+/* -------------------------------
+   Hero Section
+---------------------------------*/
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #fdf5e6, #fffbe6);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #d4af37;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #bfa135;
+}
+
+/* -------------------------------
+   Sections
+---------------------------------*/
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #bfa135;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.about-section p,
+.tokenomics-section p {
+  margin-bottom: 1rem;
+}
+
+/* -------------------------------
+   Pi Integration Section
+---------------------------------*/
+.pi-section ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.pi-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------------
+   Tokenomics
+---------------------------------*/
+.tokenomics-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.tokenomics-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------------
+   Roadmap
+---------------------------------*/
+.roadmap-section ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.roadmap-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------------
+   Footer
+---------------------------------*/
+.footer {
+  background-color: #fdf5e6;
+  border-top: 2px solid #d4af37;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footer a {
+  color: #d4af37;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  color: #bfa135;
+}
+
+/* -------------------------------
+   Responsive Design
+---------------------------------*/
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header nav {
+    margin-top: 0.5rem;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.5rem;
+  }
+}
