@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>رمزها تمكين - Nawah x Pi</title>
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f5f5f5; padding: 2rem; }
+    .card { background: white; border-radius: 8px; padding: 1.5rem; max-width: 400px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    button { padding: 0.7rem 1.2rem; margin-top: 1rem; border: none; border-radius: 4px; background-color: #6c5ce7; color: white; cursor: pointer; }
+    img { width: 100%; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>NFT: المرأة الحكيمة</h2>
+    <img src="https://via.placeholder.com/300x300.png?text=Wise+Woman+NFT" alt="NFT رمزية">
+    <p>ادعم تمكين المرأة بشراء هذا الرمز الفريد مقابل 1 Pi.</p>
+    <button onclick="loginWithPi()">🔗 ربط المحفظة</button>
+    <button onclick="purchaseNFT()">🛒 شراء NFT</button>
+  </div>
+
+  <script>
+    async function loginWithPi() {
+      try {
+        const scopes = ['payments'];
+        const authResult = await Pi.authenticate(scopes, function (auth) {
+          console.log('User authenticated', auth);
+        });
+        alert('تم تسجيل الدخول باسم: ' + authResult.user.username);
+      } catch (err) {
+        alert('فشل تسجيل الدخول: ' + err.message);
+      }
+    }
+
+    function purchaseNFT() {
+      alert('سيتم قريبًا تفعيل خاصية الدفع بـ Pi.\nشكرًا لدعمك!');
+    }
+  </script>
+
+</body>
+</html>
