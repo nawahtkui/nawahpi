@@ -1,20 +1,49 @@
-name: Deploy to GitHub Pages
+name: Deploy Gatsby to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # أو الفرع الذي تستخدمه
+      - main  # الفرع الذي سيتم النشر منه
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # أو المسار الذي يحتوي على ملفاتك
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: ui  # تأكد أن هذا هو مجلد مشروع Gatsby
+        run: |
+          echo "Installing dependencies..."
+          if [ -f "yarn.lock" ]; then
+            yarn install
+          elif [ -f "package.json" ]; then
+            npm ci
+          else
+            echo "Unable to determine package manager"
+            exit 1
+          fi
+
+      - name: Build Gatsby site
+        working-directory: ui
+        run: |
+          echo "Building Gatsby site..."
+          npm run build || yarn build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ui/public  # مجلد البناء الافتراضي لـ Gatsby
+
+      - name: Publish
+        uses: actions/deploy-pages@v1
