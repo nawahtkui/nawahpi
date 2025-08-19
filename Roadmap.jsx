@@ -1,15 +1,16 @@
+// src/components/Roadmap.jsx
 import React from "react";
 
 function Roadmap() {
   return (
-    <section id="roadmap" className="roadmap-section">
-      <h2>Roadmap</h2>
+    <section className="roadmap-section">
+      <h2>Roadmap 2025-2028</h2>
       <ol>
-        <li>2025 – Launch of Nawah Token & Pi Integration</li>
-        <li>2026 – NFT collections & cultural campaigns</li>
-        <li>2027 – GameFi & educational platforms</li>
-        <li>2028 – Partnerships with financial institutions</li>
-        <li>2029 – Global adoption & sustainability programs</li>
+        <li>Q3 2025: Launch Website & Pi Integration</li>
+        <li>Q4 2025: Token Presale & NFT Collection</li>
+        <li>2026: GameFi & Web3 Utilities Integration</li>
+        <li>2027: Partnerships & Exchange Listings</li>
+        <li>2028: Expansion & Global Community Events</li>
       </ol>
     </section>
   );
