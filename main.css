@@ -1,203 +1,85 @@
-/* src/styles/main.css */
-
-/* -------------------------------
-   General Reset & Base Styles
----------------------------------*/
-* {
+/* General Styles */
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #1c1c1c;
 }
 
-body {
-  background-color: #fffdf7;
-  color: #1a1a1a;
-  line-height: 1.6;
-}
-
-/* -------------------------------
-   Header
----------------------------------*/
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fdf5e6;
-  border-bottom: 2px solid #d4af37;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #d4af37; /* Gold */
-}
-
-.header nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.header nav a:hover {
-  color: #d4af37;
-}
-
-/* -------------------------------
-   Hero Section
----------------------------------*/
-.hero {
+/* Section Wrapper */
+.section-wrapper, .hero-section, .about-section, .pi-section, .tokenomics-section, .roadmap-section, .footer-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #fdf5e6, #fffbe6);
 }
 
-.hero h1 {
-  font-size: 3rem;
-  color: #d4af37;
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #4CAF50, #FFD700);
+  color: #fff;
+  padding: 6rem 2rem;
+  border-radius: 12px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero p {
-  font-size: 1.5rem;
+.hero-section p {
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
+/* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: #d4af37;
+  padding: 0.75rem 1.5rem;
+  background-color: #4CAF50;
   color: #fff;
+  border-radius: 8px;
   font-weight: bold;
-  border-radius: 30px;
   text-decoration: none;
   transition: background 0.3s;
 }
 
 .cta-button:hover {
-  background-color: #bfa135;
+  background-color: #45a049;
 }
 
-/* -------------------------------
-   Sections
----------------------------------*/
-section {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+/* Lists */
+ol, ul {
+  text-align: left;
+  display: inline-block;
+  margin-top: 1rem;
 }
 
-h2 {
-  font-size: 2rem;
-  color: #bfa135;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.about-section p,
-.tokenomics-section p {
-  margin-bottom: 1rem;
-}
-
-/* -------------------------------
-   Pi Integration Section
----------------------------------*/
-.pi-section ol {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.pi-section li {
-  margin-bottom: 0.5rem;
-}
-
-/* -------------------------------
-   Tokenomics
----------------------------------*/
-.tokenomics-section ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-}
-
-.tokenomics-section li {
-  margin-bottom: 0.5rem;
-}
-
-/* -------------------------------
-   Roadmap
----------------------------------*/
-.roadmap-section ol {
-  list-style-type: decimal;
-  padding-left: 1.5rem;
-}
-
-.roadmap-section li {
-  margin-bottom: 0.5rem;
-}
-
-/* -------------------------------
-   Footer
----------------------------------*/
-.footer {
-  background-color: #fdf5e6;
-  border-top: 2px solid #d4af37;
-  text-align: center;
+/* Footer */
+.footer-section {
+  background-color: #1c1c1c;
+  color: #fff;
   padding: 2rem;
-  font-size: 0.9rem;
-  color: #555;
+  border-top: 2px solid #4CAF50;
 }
 
-.footer a {
-  color: #d4af37;
-  text-decoration: none;
-  margin: 0 0.5rem;
+/* Loading */
+.loading {
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #4CAF50;
 }
 
-.footer a:hover {
-  color: #bfa135;
-}
-
-/* -------------------------------
-   Responsive Design
----------------------------------*/
+/* Responsive */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
+  .section-wrapper {
+    padding: 2rem 1rem;
   }
-
-  .hero p {
-    font-size: 1.2rem;
+  .hero-section h1 {
+    font-size: 2rem;
   }
-
-  .header {
-    flex-direction: column;
-  }
-
-  .header nav {
-    margin-top: 0.5rem;
-  }
-
-  section {
-    padding: 3rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
+  .hero-section p {
     font-size: 1rem;
-  }
-
-  .cta-button {
-    padding: 0.6rem 1.5rem;
   }
 }
