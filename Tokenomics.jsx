@@ -10,7 +10,6 @@ const data = [
   { name: "Reserve", value: 5 },
 ];
 
-// ألوان الرسم البياني
 const COLORS = ["#4CAF50", "#FFD700", "#FF9800", "#2196F3", "#9C27B0"];
 
 function Tokenomics() {
@@ -30,6 +29,9 @@ function Tokenomics() {
               outerRadius={100}
               paddingAngle={5}
               dataKey="value"
+              isAnimationActive={true}      // ✅ تفعيل الأنيميشن
+              animationDuration={1500}      // مدة الأنيميشن (1.5 ثانية)
+              animationBegin={0}            // يبدأ فورًا
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
