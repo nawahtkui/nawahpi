@@ -1,0 +1,60 @@
+name: Build and Deploy Gatsby Site
+
+on:
+  push:
+    branches:
+      - main  # غيّر حسب الفرع الرئيسي لديك
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Cache npm dependencies
+      - name: Cache Node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # 4. Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 5. Optimize Images and Assets
+      - name: Optimize Images
+        run: |
+          npx gatsby clean
+          npx gatsby build --no-uglify=false
+
+      # 6. Configure GitHub Pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # 7. Upload artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      # 8. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+
+      # 9. Notify on failure
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "🚨 Deployment failed! Check the Actions logs for details."
