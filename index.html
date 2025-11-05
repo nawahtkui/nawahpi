@@ -1,12 +1,32 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nawah Token × Pi</title>
-  </head>
-  <body class="bg-gray-50">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nawah Token Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Nawah Token (NWTK) Demo</h1>
+  <p>Your Demo Balance: <span id="balance">1000</span> NWTK</p>
+  
+  <h2>Transfer Tokens</h2>
+  <input type="text" id="recipient" placeholder="Recipient Address">
+  <input type="number" id="amount" placeholder="Amount">
+  <button onclick="transferTokens()">Transfer</button>
+  <p id="message"></p>
+
+  <h2>Sample NFTs</h2>
+  <div class="nft-list">
+    <div class="nft-item">
+      <img src="images/nft1.png" alt="NFT1" width="100">
+      <p>Golden Wisdom NFT</p>
+    </div>
+    <div class="nft-item">
+      <img src="images/nft2.png" alt="NFT2" width="100">
+      <p>Empowerment NFT</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
